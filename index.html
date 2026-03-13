@@ -2,22 +2,22 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Informe de vehículo DGT</title>
+<title>Informe de vehículo DGT – Solicita tu informe</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="https://js.stripe.com/v3/"></script>
 <style>
-body { margin:0; font-family: 'Helvetica Neue', Arial, sans-serif; background: #f4f6f8; color: #001f3f; }
-header { display:flex; align-items:center; padding: 30px 40px; background:#001f3f; color:#fff; }
-header img { width:40px; height:40px; margin-right:20px; }
-header h1 { font-size:1.8em; margin:0; }
-header p { margin-left:auto; font-size:1em; color:#d0d7e0; }
-.container { display:flex; justify-content:center; align-items:flex-start; gap:40px; padding:60px 20px; flex-wrap:wrap; }
-.card { background:#fff; padding:30px; border-radius:15px; box-shadow:0 8px 25px rgba(0,0,0,0.12); width:280px; text-align:center; transition: transform 0.3s; }
+body { margin:0; font-family: 'Helvetica Neue', Arial, sans-serif; background:#f4f6f8; color:#001f3f; }
+header { display:flex; align-items:center; justify-content:center; flex-direction:column; padding:50px 20px; background:#001f3f; color:#fff; text-align:center; }
+header img { width:50px; height:50px; margin-bottom:15px; }
+header h1 { font-size:2em; margin:0; }
+header p { font-size:1.5em; font-weight:bold; text-decoration: underline; margin-top:20px; color:#ffdd57; }
+.container { display:flex; justify-content:center; align-items:flex-start; gap:40px; padding:40px 20px; flex-wrap:wrap; }
+.card { background:#fff; padding:30px; border-radius:15px; box-shadow:0 10px 30px rgba(0,0,0,0.12); width:300px; text-align:center; transition: transform 0.3s; }
 .card:hover { transform: translateY(-5px); }
-.card b { display:block; font-size:1.4em; margin:15px 0; color:#001f3f; }
-button.pay { background: linear-gradient(135deg,#2ecc71,#27ae60); color:white; border:none; padding:16px 0; width:100%; font-size:1.1em; border-radius:10px; cursor:pointer; transition: all 0.3s; }
+.card b { display:block; font-size:1.5em; margin:15px 0; color:#001f3f; }
+button.pay { background: linear-gradient(135deg,#2ecc71,#27ae60); color:white; border:none; padding:16px 0; width:100%; font-size:1.2em; border-radius:10px; cursor:pointer; transition: all 0.3s; }
 button.pay:hover { background: linear-gradient(135deg,#27ae60,#219150); }
-.confirmation { display:none; text-align:center; font-size:1.25em; margin-top:50px; color:#001f3f; }
+.confirmation { display:none; text-align:center; font-size:1.3em; margin-top:50px; color:#001f3f; }
 </style>
 </head>
 <body>
@@ -33,13 +33,13 @@ button.pay:hover { background: linear-gradient(135deg,#27ae60,#219150); }
     <b>Informe Vehículo Rápido</b>
     <p>Entrega en 24 h</p>
     <b>25 €</b>
-    <button class="pay" id="btn-rapido">Pagar y solicitar</button>
+    <button class="pay" id="btn-rapido">Solicitar Informe</button>
   </div>
   <div class="card">
     <b>Informe Vehículo Urgente</b>
     <p>Entrega inmediata</p>
     <b>29 €</b>
-    <button class="pay" id="btn-urgente">Pagar y solicitar</button>
+    <button class="pay" id="btn-urgente">Solicitar Informe</button>
   </div>
 </div>
 
@@ -48,9 +48,10 @@ button.pay:hover { background: linear-gradient(135deg,#27ae60,#219150); }
 </div>
 
 <script>
-// Clave pública de prueba que proporcionaste
+// Clave pública de prueba
 const stripe = Stripe('pk_test_51TAWruFT3616A0OSYp3dmLvifQVdW1gI52pvhERfyyJIMrFIQzlSQoDy2EEmH5YVuEysfc5PCmSy6k1HQAKUzhPF00FaT66JuS');
 
+// Botón Informe Rápido
 document.getElementById('btn-rapido').addEventListener('click', function() {
     stripe.redirectToCheckout({
         lineItems: [{ price: 'price_1TAXN1FT3616A0OSDVZwiAEO', quantity: 1 }],
@@ -60,6 +61,7 @@ document.getElementById('btn-rapido').addEventListener('click', function() {
     });
 });
 
+// Botón Informe Urgente
 document.getElementById('btn-urgente').addEventListener('click', function() {
     stripe.redirectToCheckout({
         lineItems: [{ price: 'price_1TAXPoFT3616A0OSZBhv1HWI', quantity: 1 }],
