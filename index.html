@@ -48,7 +48,8 @@ button.pay:hover { background: linear-gradient(135deg,#27ae60,#219150); }
 </div>
 
 <script>
-const stripe = Stripe('TU_STRIPE_PUBLIC_KEY'); // Reemplaza con tu clave pública Stripe
+// Clave pública de prueba que proporcionaste
+const stripe = Stripe('pk_test_51TAWruFT3616A0OSYp3dmLvifQVdW1gI52pvhERfyyJIMrFIQzlSQoDy2EEmH5YVuEysfc5PCmSy6k1HQAKUzhPF00FaT66JuS');
 
 document.getElementById('btn-rapido').addEventListener('click', function() {
     stripe.redirectToCheckout({
@@ -68,6 +69,7 @@ document.getElementById('btn-urgente').addEventListener('click', function() {
     });
 });
 
+// Mostrar confirmación tras pago
 if(window.location.search.includes('success=true')) {
     document.querySelector('.container').style.display = 'none';
     document.getElementById('confirmation').style.display = 'block';
