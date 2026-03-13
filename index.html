@@ -10,24 +10,19 @@ body { font-family: 'Helvetica Neue', Arial, sans-serif; margin:0; background: #
 header { background: linear-gradient(135deg,#001f3f,#003366); color: #fff; text-align: center; padding: 60px 20px; }
 header h1 { font-size: 2.8em; margin-bottom: 15px; }
 header p { font-size: 1.3em; color: #d0d7e0; }
-
 .container { max-width: 900px; margin: 30px auto; background: #fff; padding: 50px; border-radius: 15px; box-shadow: 0 12px 30px rgba(0,0,0,0.12); transition: all 0.5s ease; }
 h2 { font-size: 2em; margin-bottom: 25px; color: #001f3f; text-align: center; }
-
 input[type="text"], input[type="email"] { width: 100%; padding: 16px; margin: 10px 0 25px; border-radius: 10px; border: 1px solid #ccc; font-size: 1.05em; }
 button { border: none; cursor: pointer; border-radius: 10px; font-size: 1.15em; transition: all 0.3s ease; }
 button.submit { background: #001f3f; color: #fff; padding: 18px; width: 100%; margin-top: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.15);}
 button.submit:hover { background: #003366; }
-
 .payment-section { display: none; margin-top: 40px; }
 .pricebox { background: #f9f9fb; border-radius: 12px; padding: 35px; margin: 20px 0; text-align: center; box-shadow: 0 6px 20px rgba(0,0,0,0.07); transition: transform 0.3s; }
 .pricebox:hover { transform: translateY(-5px); }
 .pricebox b { font-size: 1.5em; color: #001f3f; display:block; margin:15px 0; }
 button.pay { background: linear-gradient(135deg,#2ecc71,#27ae60); color: white; padding: 18px; font-size: 1.2em; width: 100%; margin-top: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.12);}
 button.pay:hover { background: linear-gradient(135deg,#27ae60,#219150); }
-
 .confirmation { display: none; text-align: center; padding: 50px; font-size: 1.35em; color: #001f3f; }
-
 .fade { opacity: 0; transition: opacity 0.6s ease; }
 .show { opacity: 1; }
 </style>
@@ -40,8 +35,7 @@ button.pay:hover { background: linear-gradient(135deg,#27ae60,#219150); }
 </header>
 
 <div class="container">
-
-  <!-- FORMULARIO INICIAL -->
+  <!-- FORMULARIO -->
   <div id="form-container" class="fade show">
     <h2>Introduce tus datos</h2>
     <input type="text" id="matricula" placeholder="Matrícula" required>
@@ -54,15 +48,15 @@ button.pay:hover { background: linear-gradient(135deg,#27ae60,#219150); }
     <h2>Selecciona tu tipo de informe</h2>
 
     <div class="pricebox">
-      <b>Informe Normal</b>
-      <p>Entrega en pocas horas</p>
+      <b>Informe Rápido</b>
+      <p>Entrega en 24 h</p>
       <b>25 €</b>
-      <button class="pay" id="btn-normal">Pagar y solicitar informe</button>
+      <button class="pay" id="btn-rapido">Pagar y solicitar informe</button>
     </div>
 
     <div class="pricebox">
-      <b>Informe Urgente</b>
-      <p>Entrega rápida</p>
+      <b>Informe Vehículo Urgente</b>
+      <p>Entrega inmediata</p>
       <b>29 €</b>
       <button class="pay" id="btn-urgente">Pagar y solicitar informe</button>
     </div>
@@ -72,20 +66,16 @@ button.pay:hover { background: linear-gradient(135deg,#27ae60,#219150); }
   <div id="confirmation" class="confirmation fade">
     ¡Gracias! Tu pago se ha completado y tu informe será enviado a tu email.
   </div>
-
 </div>
 
 <script>
-const stripe = Stripe('TU_STRIPE_PUBLIC_KEY'); // Tu clave pública
+const stripe = Stripe('TU_STRIPE_PUBLIC_KEY'); // Reemplaza con tu clave pública Stripe
 
 function submitForm() {
     const matricula = document.getElementById('matricula').value.trim();
     const email = document.getElementById('email').value.trim();
     if(!matricula || !email) { alert('Por favor completa todos los campos'); return; }
 
-    // Guardar datos en backend / Google Sheets si quieres
-
-    // Transición suave
     document.getElementById('form-container').classList.remove('show');
     setTimeout(()=> {
         document.getElementById('form-container').style.display = 'none';
@@ -95,10 +85,10 @@ function submitForm() {
     },500);
 }
 
-// Stripe Checkout
-document.getElementById('btn-normal').addEventListener('click', function() {
+// Botones Stripe Checkout
+document.getElementById('btn-rapido').addEventListener('click', function() {
     stripe.redirectToCheckout({
-        lineItems: [{ price: 'TU_PRICE_ID_NORMAL', quantity: 1 }],
+        lineItems: [{ price: 'price_1TAXN1FT3616A0OSDVZwiAEO', quantity: 1 }],
         mode: 'payment',
         successUrl: window.location.href + '?success=true',
         cancelUrl: window.location.href
@@ -107,7 +97,7 @@ document.getElementById('btn-normal').addEventListener('click', function() {
 
 document.getElementById('btn-urgente').addEventListener('click', function() {
     stripe.redirectToCheckout({
-        lineItems: [{ price: 'TU_PRICE_ID_URGENTE', quantity: 1 }],
+        lineItems: [{ price: 'price_1TAXPoFT3616A0OSZBhv1HWI', quantity: 1 }],
         mode: 'payment',
         successUrl: window.location.href + '?success=true',
         cancelUrl: window.location.href
