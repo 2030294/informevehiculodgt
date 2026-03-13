@@ -8,13 +8,11 @@
 <meta name="keywords" content="Informe vehículo DGT, historial coche, compra segura, informe coche">
 <meta name="author" content="Tu nombre o empresa">
 
-<!-- Google Fonts y iconos -->
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
-/* RESET Y TIPOGRAFÍA */
-body, h1, h2, h3, p, ul { margin:0; padding:0; }
+body, h1, h2, p, ul { margin:0; padding:0; }
 body { font-family: 'Roboto', Arial, sans-serif; background:#f5f5f5; line-height:1.6; }
 ul { list-style:none; }
 
@@ -24,16 +22,28 @@ header {
   color:white;
   text-align:center;
   padding:60px 20px;
+  position:relative;
 }
 header h1 { font-size:2.8em; margin-bottom:10px; }
-header p { font-size:1.2em; }
+header p { font-size:1.2em; margin-bottom:30px; }
+
+/* BOTÓN CTA */
+header .cta-button {
+  background:#ff7f50;
+  color:white;
+  border:none;
+  padding:20px 35px;
+  font-size:1.2em;
+  border-radius:8px;
+  cursor:pointer;
+  transition:0.3s;
+  text-decoration:none;
+  display:inline-block;
+}
+header .cta-button:hover { background:#e36b3c; }
 
 /* CONTENEDOR PRINCIPAL */
-.container {
-  max-width: 1000px;
-  margin: 40px auto;
-  padding: 20px;
-}
+.container { max-width:1000px; margin:40px auto; padding:20px; }
 
 /* SECCIONES */
 section { margin-bottom:60px; }
@@ -43,12 +53,7 @@ h2 { color:#003366; margin-bottom:20px; text-align:center; }
 ul li { margin-bottom:10px; }
 
 /* TARJETAS DE PRECIOS */
-.pricing {
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:20px;
-}
+.pricing { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; }
 .pricebox {
   flex:1 1 250px;
   background:#fff;
@@ -84,6 +89,7 @@ footer { text-align:center; color:#555; font-size:13px; margin:40px 0; }
 <header>
   <h1>Informe de Vehículo DGT</h1>
   <p>Consulta rápida y fácil el historial de cualquier coche antes de comprar</p>
+  <a href="#order" class="cta-button"><i class="fas fa-paper-plane"></i> Solicitar informe ahora</a>
 </header>
 
 <div class="container">
@@ -147,12 +153,6 @@ footer { text-align:center; color:#555; font-size:13px; margin:40px 0; }
       <a href="mailto:lmartinnievas@gmail.com">
         <button><i class="fas fa-envelope"></i> Enviar correo</button>
       </a>
-      <!-- Botón Bizum: descomentar y añadir enlace -->
-      <!--
-      <a href="TU_ENLACE_DE_BIZUM" target="_blank">
-        <button><i class="fas fa-hand-holding-usd"></i> Pagar con Bizum</button>
-      </a>
-      -->
     </div>
   </section>
 
