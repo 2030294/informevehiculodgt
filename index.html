@@ -2,8 +2,11 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Informe Vehículo DGT</title>
+<title>Informe de Vehículo DGT | Compra segura</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Consulta rápida y fácil informes de vehículos de la DGT: titulares, embargos, ITV, kilometraje y más.">
+<meta name="keywords" content="Informe vehículo DGT, historial coche, compra segura, informe coche">
+<meta name="author" content="Tu nombre o empresa">
 
 <style>
 body {
@@ -35,6 +38,9 @@ button {
   cursor: pointer;
   width: 100%;
 }
+button:hover {
+  background-color: #27ae60;
+}
 input, select {
   width: 100%;
   padding: 10px;
@@ -46,7 +52,6 @@ input, select {
   margin: 10px 0;
 }
 </style>
-
 </head>
 <body>
 
@@ -88,10 +93,38 @@ input, select {
     <button type="submit">Solicitar informe</button>
   </form>
 
+  <p id="successMessage" style="color:green; display:none;">¡Formulario enviado! Revisa tu correo.</p>
+
+  <h2>Contacta conmigo</h2>
+  <p>Si tienes dudas, escríbeme directamente a mi correo:</p>
+  <a href="mailto:lmartinnievas@gmail.com">
+    <button>Enviar correo</button>
+  </a>
+
+  <p>O contáctame por WhatsApp:</p>
+  <a href="https://wa.me/34612345678?text=Hola,%20quiero%20solicitar%20un%20informe" target="_blank">
+    <button>Contactar por WhatsApp</button>
+  </a>
+
+  <!-- Botón de Bizum (descomentar y poner tu enlace cuando lo tengas) -->
+  <!--
+  <h2>Pagar con Bizum</h2>
+  <a href="TU_ENLACE_DE_BIZUM" target="_blank">
+    <button>Pagar con Bizum</button>
+  </a>
+  -->
+
   <p style="margin-top:20px;font-size:13px;color:#555;">
     Este servicio actúa como intermediario en la obtención de informes de vehículos basados en datos públicos de la DGT.
   </p>
 </div>
+
+<script>
+const form = document.querySelector('form');
+form.addEventListener('submit', function() {
+  document.getElementById('successMessage').style.display = 'block';
+});
+</script>
 
 </body>
 </html>
