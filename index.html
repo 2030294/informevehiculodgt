@@ -18,19 +18,18 @@ body {
 header {
   background: #003366;
   color: #fff;
-  padding: 30px 20px;
   text-align: center;
+  padding: 40px 20px;
 }
-h1 {
+header h1 {
   margin: 0;
-  font-size: 2.2em;
+  font-size: 2.5em;
 }
-.highlight {
-  font-size: 1.2em;
-  color: #ff6600;
-  font-weight: bold;
-  margin-top: 10px;
+header .highlight {
   display: block;
+  font-size: 1.3em;
+  color: #ff6600;
+  margin-top: 10px;
 }
 .container {
   max-width: 1000px;
@@ -76,10 +75,6 @@ h1 {
 .product-card h3 {
   margin: 10px 0;
   color: #003366;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
 }
 .product-card p {
   margin: 10px 0 20px 0;
@@ -149,10 +144,7 @@ footer {
   <h2>Selecciona el informe</h2>
   <div class="products">
     <div class="product-card">
-      <h3>
-        <img src="favicon.png" class="vehicle-icon" alt="vehículo">
-        Informe Vehículo Completo
-      </h3>
+      <h3>Informe Vehículo Completo</h3>
       <p>Entrega en pocas horas</p>
       <p class="price">
         <span class="old-price">39 €</span> 25 €
@@ -167,7 +159,7 @@ footer {
     <p><strong>Horario de atención:</strong> Lunes a Viernes de 9:00 a 18:00</p>
     <p>Te atendemos por correo a través de <a href="mailto:info@informevehiculodgt.es">info@informevehiculodgt.es</a></p>
     <p><strong>¿Cómo consultar el estado de mi solicitud?</strong> Ingresa a "Ver estado de solicitud", introduce tu correo y la matrícula del vehículo. Podrás ver el estado y descargar los documentos.</p>
-    <p><strong>¿Qué trámites puedo solicitar?</strong> Disponemos de informes completos sobre cargas, titularidad, historial de ITV, kilometraje, llamadas a revisión y mantenimiento del vehículo.</p>
+    <p><strong>¿Qué trámites puedo solicitar?</strong> Obtén informes completos sobre cargas, titularidad, historial de ITV, kilometraje, llamadas a revisión y mantenimiento del vehículo.</p>
     <p><strong>¿Cuál es el plazo de entrega?</strong> Entrega rápida en pocas horas para todos los informes.</p>
     <p><strong>¿Más dudas?</strong> Contacta con nosotros vía <a href="mailto:info@informevehiculodgt.es">info@informevehiculodgt.es</a>.</p>
   </div>
@@ -177,7 +169,6 @@ footer {
   <p>Política de Privacidad: Tu información se usa solo para generar el informe y procesar pagos seguros mediante Stripe. No compartimos tus datos con terceros.</p>
 </footer>
 
-<!-- Stripe.js -->
 <script src="https://js.stripe.com/v3/"></script>
 <script>
 const stripeURL = "https://buy.stripe.com/dRm6oH9571ox1Ila8ugrS00"; // 25€
@@ -189,12 +180,11 @@ function goToStripe() {
     alert('Por favor, completa matrícula y email antes de continuar.');
     return;
   }
-  // Aquí podrías enviar matrícula/email a tu servidor si quieres guardarlos
   window.location.href = stripeURL;
 }
 
 // Contador simple de 1 hora
-let countdownDate = new Date().getTime() + 60*60*1000; // 1 hora
+let countdownDate = new Date().getTime() + 60*60*1000;
 let countdownEl = document.getElementById("countdown");
 setInterval(function() {
   let now = new Date().getTime();
