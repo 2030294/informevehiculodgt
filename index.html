@@ -4,9 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Informe Vehículo DGT | Comprobar coche antes de comprar</title>
-<meta name="description" content="Obtén tu informe completo de vehículo DGT al instante. Verifica cargas, embargos, kilometraje y titular antes de comprar un coche de segunda mano.">
+<meta name="description" content="Obtén tu informe completo de vehículo DGT al instante. Verifica cargas, embargos, historial de ITV y datos técnicos antes de comprar un coche de segunda mano.">
 
-<!-- Favicon -->
 <link rel="icon" type="image/png" href="/favicon.png">
 
 <style>
@@ -88,8 +87,8 @@ h1 {
 }
 .price {
   font-size: 1.5em;
-  color: #003366;
   font-weight: bold;
+  color: #003366;
 }
 .old-price {
   text-decoration: line-through;
@@ -99,29 +98,21 @@ h1 {
 button.pay {
   background: #ff6600;
   color: #fff;
-  font-size: 1.2em;
-  padding: 15px 30px;
   border: none;
-  border-radius: 8px;
+  padding: 16px 25px;
+  font-size: 18px;
   cursor: pointer;
-  font-weight: bold;
+  border-radius: 6px;
   transition: background 0.3s;
 }
 button.pay:hover {
   background: #e65c00;
-}
-.countdown {
-  font-size: 1.3em;
-  color: red;
-  font-weight: bold;
-  margin-bottom: 15px;
 }
 .faq {
   margin-top: 40px;
 }
 .faq h2 {
   color: #003366;
-  font-size: 1.5em;
   margin-bottom: 20px;
 }
 .faq p {
@@ -134,13 +125,10 @@ footer {
   text-align: center;
   padding-bottom: 20px;
 }
-a.email-link {
-  color: #003366;
+.timer {
+  font-size: 1.2em;
+  color: #ff0000;
   font-weight: bold;
-  text-decoration: none;
-}
-a.email-link:hover {
-  text-decoration: underline;
 }
 </style>
 </head>
@@ -158,75 +146,68 @@ a.email-link:hover {
     <input type="email" id="email" placeholder="Email">
   </div>
 
-  <h2>Oferta limitada</h2>
+  <h2>Selecciona el informe</h2>
   <div class="products">
     <div class="product-card">
-      <h3>Informe Vehículo Completo</h3>
-      <p>Entrega inmediata</p>
-      <p>
-        <span class="old-price">39 €</span>
-        <span class="price">25 €</span>
+      <h3>
+        <img src="favicon.png" class="vehicle-icon" alt="vehículo">
+        Informe Vehículo Completo
+      </h3>
+      <p>Entrega en pocas horas</p>
+      <p class="price">
+        <span class="old-price">39 €</span> 25 €
       </p>
-      <div class="countdown" id="countdown"></div>
-      <button class="pay" onclick="alert('Redirigir a pago o formulario de solicitud')">Solicitar Informe</button>
+      <p class="timer" id="countdown">Oferta limitada: 00:59:59</p>
+      <button class="pay" onclick="goToStripe()">Solicitar Informe</button>
     </div>
   </div>
 
-  <div class="info-text">
-    <h2>¿Qué incluye el informe completo?</h2>
-    <p>Solicita un <strong>informe completo de cualquier vehículo matriculado en España</strong>, con información pública y actualizada. Ideal para comprar un coche de segunda mano y asegurarte de que todo está en regla.</p>
-    <ul>
-      <li><strong>Información administrativa:</strong> titular actual, municipio y número de titulares anteriores.</li>
-      <li><strong>Historial de ITV:</strong> vigencia de inspección técnica, revisiones y reparaciones en talleres oficiales.</li>
-      <li><strong>Datos técnicos:</strong> kilometraje, características, puntuación EuroNCAP, llamadas a revisión pendientes.</li>
-      <li><strong>Cargas y restricciones:</strong> embargos, precintos u otras cargas administrativas o judiciales.</li>
-    </ul>
-    <p>Con este informe podrás tomar decisiones informadas y <strong>evitar sorpresas ocultas</strong> antes de comprar un vehículo.</p>
-  </div>
-
   <div class="faq">
-    <h2>Preguntas frecuentes</h2>
+    <h2>Preguntas Frecuentes</h2>
     <p><strong>Horario de atención:</strong> Lunes a Viernes de 9:00 a 18:00</p>
-    <p>Te atendemos por correo: <a href="mailto:info@informevehiculodgt.es" class="email-link">info@informevehiculodgt.es</a></p>
-    <p><strong>¿Cómo consulto el estado de mi solicitud?</strong></p>
-    <p>Entra en <em>Ver estado de solicitud</em>, introduce tu correo y la matrícula. Podrás ver el estado de cada solicitud y descargar los documentos.</p>
-    <p><strong>¿Qué trámites puedo solicitar?</strong></p>
-    <p>Dispones de informes con información pública, siendo el completo el más recomendado.</p>
-    <p><strong>¿Cuál es el plazo de entrega?</strong></p>
-    <p>Entrega en pocas horas para el informe completo.</p>
-    <p><strong>¿Más dudas?</strong> Contacta con nosotros vía correo electrónico.</p>
+    <p>Te atendemos por correo a través de <a href="mailto:info@informevehiculodgt.es">info@informevehiculodgt.es</a></p>
+    <p><strong>¿Cómo consultar el estado de mi solicitud?</strong> Ingresa a "Ver estado de solicitud", introduce tu correo y la matrícula del vehículo. Podrás ver el estado y descargar los documentos.</p>
+    <p><strong>¿Qué trámites puedo solicitar?</strong> Disponemos de informes completos sobre cargas, titularidad, historial de ITV, kilometraje, llamadas a revisión y mantenimiento del vehículo.</p>
+    <p><strong>¿Cuál es el plazo de entrega?</strong> Entrega rápida en pocas horas para todos los informes.</p>
+    <p><strong>¿Más dudas?</strong> Contacta con nosotros vía <a href="mailto:info@informevehiculodgt.es">info@informevehiculodgt.es</a>.</p>
   </div>
-
 </div>
 
 <footer>
-  <p>Política de privacidad: Tu información (matrícula y email) se usa solo para generar el informe y procesar pagos seguros. No compartimos tus datos con terceros.</p>
+  <p>Política de Privacidad: Tu información se usa solo para generar el informe y procesar pagos seguros mediante Stripe. No compartimos tus datos con terceros.</p>
 </footer>
 
+<!-- Stripe.js -->
+<script src="https://js.stripe.com/v3/"></script>
 <script>
-// Contador de urgencia de 24 horas
-let countdownDate = new Date();
-countdownDate.setHours(countdownDate.getHours() + 24);
+const stripeURL = "https://buy.stripe.com/dRm6oH9571ox1Ila8ugrS00"; // 25€
 
-function updateCountdown() {
-  let now = new Date().getTime();
-  let distance = countdownDate - now;
-
-  if(distance < 0) {
-    document.getElementById("countdown").innerHTML = "Oferta finalizada";
-    document.querySelector(".pay").disabled = true;
+function goToStripe() {
+  const matricula = document.getElementById('matricula').value.trim();
+  const email = document.getElementById('email').value.trim();
+  if (!matricula || !email) {
+    alert('Por favor, completa matrícula y email antes de continuar.');
     return;
   }
-
-  let hours = Math.floor((distance % (1000 * 60 * 60 * 24))/(1000*60*60));
-  let minutes = Math.floor((distance % (1000 * 60 * 60))/(1000*60));
-  let seconds = Math.floor((distance % (1000 * 60))/1000);
-
-  document.getElementById("countdown").innerHTML = `¡Oferta válida por: ${hours}h ${minutes}m ${seconds}s!`;
+  // Aquí podrías enviar matrícula/email a tu servidor si quieres guardarlos
+  window.location.href = stripeURL;
 }
 
-setInterval(updateCountdown, 1000);
-updateCountdown();
+// Contador simple de 1 hora
+let countdownDate = new Date().getTime() + 60*60*1000; // 1 hora
+let countdownEl = document.getElementById("countdown");
+setInterval(function() {
+  let now = new Date().getTime();
+  let distance = countdownDate - now;
+  let hours = Math.floor((distance % (1000*60*60*24))/(1000*60*60));
+  let minutes = Math.floor((distance % (1000*60*60))/(1000*60));
+  let seconds = Math.floor((distance % (1000*60))/1000);
+  if(distance < 0){
+    countdownEl.innerHTML = "Oferta terminada";
+  } else {
+    countdownEl.innerHTML = `Oferta limitada: ${hours.toString().padStart(2,'0')}:${minutes.toString().padStart(2,'0')}:${seconds.toString().padStart(2,'0')}`;
+  }
+}, 1000);
 </script>
 
 </body>
