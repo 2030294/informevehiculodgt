@@ -3,24 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Informe Vehículo DGT – Comprobar coche usado al instante</title>
-<meta name="description" content="Solicita tu informe oficial del vehículo DGT por 25 €. Verifica cargas, embargos, historial de ITV, kilometraje y titular antes de comprar un coche usado. Entrega rápida y segura.">
+<title>Informe Vehículo DGT | Comprobar coche antes de comprar</title>
+<meta name="description" content="Obtén tu informe completo de vehículo DGT al instante. Verifica cargas, embargos, kilometraje y titular antes de comprar un coche de segunda mano.">
 
 <!-- Favicon -->
 <link rel="icon" type="image/png" href="/favicon.png">
-
-<!-- Open Graph / Redes Sociales -->
-<meta property="og:title" content="Informe Vehículo DGT – Comprobar coche usado al instante">
-<meta property="og:description" content="Solicita tu informe oficial del vehículo DGT por 25 €. Verifica cargas, embargos, historial de ITV, kilometraje y titular antes de comprar un coche usado. Entrega rápida y segura.">
-<meta property="og:image" content="/favicon.png">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://informevehiculodgt.es/">
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Informe Vehículo DGT – Comprobar coche usado al instante">
-<meta name="twitter:description" content="Solicita tu informe oficial del vehículo DGT por 25 €. Verifica cargas, embargos, historial de ITV, kilometraje y titular antes de comprar un coche usado. Entrega rápida y segura.">
-<meta name="twitter:image" content="/favicon.png">
 
 <style>
 body {
@@ -35,69 +22,110 @@ header {
   padding: 30px 20px;
   text-align: center;
 }
-h1 { margin: 0; font-size: 2.2em; }
-.highlight { font-size: 1.3em; color: #ff6600; font-weight: bold; margin-top: 10px; display: block; }
-.container { max-width: 1000px; margin: 20px auto; padding: 20px; }
-.products { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-bottom: 40px; }
-.product-card { border: 2px solid #003366; border-radius: 10px; padding: 30px; text-align: center; flex: 1 1 300px; min-width: 280px; position: relative; transition: transform 0.3s, box-shadow 0.3s; }
-.product-card:hover { transform: translateY(-5px); box-shadow: 0 6px 25px rgba(0,0,0,0.3); }
-.product-card h3 { margin: 10px 0; color: #003366; display: flex; align-items: center; justify-content: center; gap: 10px; }
-.product-card p { margin: 10px 0 20px 0; font-size: 1em; }
-.price { font-size: 2em; color: #ff0000; font-weight: bold; }
-.old-price { text-decoration: line-through; color: #666; margin-right: 10px; }
-.discount-badge { background: #ff6600; color: #fff; font-weight: bold; padding: 8px 15px; border-radius: 5px; position: absolute; top: 10px; right: 10px; font-size: 0.9em; box-shadow: 0 2px 6px rgba(0,0,0,0.3); }
-.countdown { background: #ff0000; color: #fff; font-weight: bold; padding: 10px 15px; border-radius: 5px; display: inline-block; margin-top: 15px; font-size: 1.1em; }
-.blog-section { max-width: 900px; margin: 40px auto; padding: 20px; line-height: 1.6; }
-.blog-section h2 { color: #003366; margin-bottom: 15px; }
-.blog-section p { margin-bottom: 15px; }
-footer { margin-top: 40px; font-size: 12px; color: #666; text-align: center; padding-bottom: 20px; }
-.faq { margin-top: 30px; }
-.faq h3 { color: #003366; }
-.faq p { margin-bottom: 15px; }
-</style>
-
-<!-- Microdata FAQ para SEO -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "¿Cómo consulto el estado de mi solicitud?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Introduce tu correo y matrícula en la sección 'Ver estado de solicitud'. Podrás ver el estado de cada solicitud y descargar los documentos listos."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Qué trámites puedo solicitar?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Puedes solicitar informes Reducido, Completo, Datos Técnicos, Cargas, Vehículos a mi nombre y Vehículos sin matricular."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Cuál es el plazo de entrega?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Los informes se entregan en pocas horas, dependiendo del tipo seleccionado."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Más dudas?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Contacta con nosotros a través del email info@informevehiculodgt.es"
-      }
-    }
-  ]
+h1 {
+  margin: 0;
+  font-size: 2.2em;
 }
-</script>
-
+.highlight {
+  font-size: 1.2em;
+  color: #ff6600;
+  font-weight: bold;
+  margin-top: 10px;
+  display: block;
+}
+.container {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 20px;
+}
+.form-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+  justify-content: center;
+}
+.form-section input {
+  padding: 14px;
+  font-size: 16px;
+  flex: 1 1 40%;
+  min-width: 200px;
+  border: 1px solid #003366;
+  border-radius: 4px;
+}
+.products {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+.product-card {
+  border: 2px solid #003366;
+  border-radius: 10px;
+  padding: 30px;
+  text-align: center;
+  flex: 1 1 300px;
+  min-width: 280px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+}
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 25px rgba(0,0,0,0.3);
+}
+.product-card h3 {
+  margin: 10px 0;
+  color: #003366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.product-card p {
+  margin: 10px 0 20px 0;
+  font-size: 1em;
+}
+.price {
+  font-size: 1.5em;
+  color: #003366;
+  font-weight: bold;
+}
+.old-price {
+  text-decoration: line-through;
+  color: #999;
+  margin-right: 10px;
+}
+button.pay {
+  display: none; /* Ocultamos botón ya que solo habrá 1 informe y no queremos redirección por ahora */
+}
+.faq {
+  margin-top: 40px;
+}
+.faq h2 {
+  color: #003366;
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+.faq p {
+  margin: 8px 0;
+}
+footer {
+  margin-top: 40px;
+  font-size: 12px;
+  color: #666;
+  text-align: center;
+  padding-bottom: 20px;
+}
+a.email-link {
+  color: #003366;
+  font-weight: bold;
+  text-decoration: none;
+}
+a.email-link:hover {
+  text-decoration: underline;
+}
+</style>
 </head>
 <body>
 
@@ -107,72 +135,54 @@ footer { margin-top: 40px; font-size: 12px; color: #666; text-align: center; pad
 </header>
 
 <div class="container">
+  <h2>Introduce tus datos</h2>
+  <div class="form-section">
+    <input type="text" id="matricula" placeholder="Matrícula">
+    <input type="email" id="email" placeholder="Email">
+  </div>
 
-  <h2>Selecciona tu informe</h2>
+  <h2>Informe completo</h2>
   <div class="products">
     <div class="product-card">
-      <div class="discount-badge">Oferta limitada</div>
-      <h3>
-        <img src="favicon.png" class="vehicle-icon" alt="vehículo">
-        Informe Vehículo Rápido
-      </h3>
+      <h3>Informe Vehículo Completo</h3>
       <p>Entrega en pocas horas</p>
       <p>
-        <span class="old-price">35 €</span>
+        <span class="old-price">39 €</span>
         <span class="price">25 €</span>
       </p>
-      <div class="countdown" id="countdown">Oferta termina en: 01:23:45</div>
     </div>
   </div>
 
-  <div class="blog-section">
-    <h2>Todo lo que debes saber sobre los informes DGT</h2>
-    <p>Puedes solicitarnos un informe con la información pública de cualquier vehículo matriculado en España. Ideal si planeas comprar un coche de segunda mano y quieres conocer su historial antes de firmar.</p>
-    <p>Tipos de informes: <strong>Reducido, Completo, Datos Técnicos, Cargas, Vehículos a mi nombre</strong> y <strong>Vehículos sin matricular</strong>. Excepto "Vehículos a mi nombre", todos están disponibles para cualquier persona.</p>
-    <p>Antes de comprar, pide un informe completo que revise embargos, precintos, procedimientos concursales u otras cargas administrativas o judiciales. También incluye datos sobre la inspección técnica, avisos de llamadas a revisión y reparaciones realizadas en talleres oficiales.</p>
-    <p>El informe completo contiene: información administrativa, titularidad, municipio, historial ITV, kilometraje, número de titulares, cargas, datos técnicos, puntuación EuroNCAP, llamadas a revisión pendientes y mantenimiento registrado en talleres adscritos al libro digital del vehículo.</p>
+  <div class="info-text">
+    <h2>¿Qué incluye el informe completo?</h2>
+    <p>Puedes solicitar un <strong>informe completo de cualquier vehículo matriculado en España</strong>, con información pública y actualizada. Ideal para comprar un coche de segunda mano y asegurarte de que todo está en regla.</p>
+    <ul>
+      <li><strong>Información administrativa:</strong> titular actual, municipio y número de titulares anteriores.</li>
+      <li><strong>Historial de ITV:</strong> vigencia de inspección técnica, revisiones y reparaciones en talleres oficiales.</li>
+      <li><strong>Datos técnicos:</strong> kilometraje, características, puntuación EuroNCAP, llamadas a revisión pendientes.</li>
+      <li><strong>Cargas y restricciones:</strong> embargos, precintos u otras cargas administrativas o judiciales.</li>
+    </ul>
+    <p>Solicitar este informe te permite tomar decisiones informadas y <strong>evitar sorpresas ocultas</strong> antes de comprar un vehículo.</p>
   </div>
 
   <div class="faq">
-    <h2>Preguntas Frecuentes</h2>
-    <h3>Horario de atención</h3>
-    <p>Lunes a Viernes de 9:00 a 18:00</p>
-    <h3>Contacto</h3>
-    <p>Te atendemos por correo electrónico a <a href="mailto:info@informevehiculodgt.es">info@informevehiculodgt.es</a></p>
-    <h3>¿Cómo consulto el estado de mi solicitud?</h3>
-    <p>Introduce tu correo y matrícula en la sección 'Ver estado de solicitud'. Podrás ver el estado y descargar los documentos listos.</p>
-    <h3>¿Qué trámites puedo solicitar?</h3>
-    <p>Informes Reducido, Completo, Datos Técnicos, Cargas, Vehículos a mi nombre y Vehículos sin matricular.</p>
-    <h3>¿Cuál es el plazo de entrega?</h3>
-    <p>Entrega en pocas horas según el tipo de informe seleccionado.</p>
-    <h3>Más dudas</h3>
-    <p>Contacta con nosotros por correo: <a href="mailto:info@informevehiculodgt.es">info@informevehiculodgt.es</a></p>
+    <h2>Preguntas frecuentes</h2>
+    <p><strong>Horario de atención:</strong> Lunes a Viernes de 9:00 a 18:00</p>
+    <p>Te atendemos por correo a través del formulario de contacto: <a href="mailto:info@informevehiculodgt.es" class="email-link">info@informevehiculodgt.es</a></p>
+    <p><strong>¿Cómo consulto el estado de mi solicitud?</strong></p>
+    <p>Entra en <em>Ver estado de solicitud</em>, introduce tu correo y la matrícula del vehículo. Podrás ver el estado de cada una de tus solicitudes y descargar los documentos cuando estén listos.</p>
+    <p><strong>¿Qué trámites puedo solicitar?</strong></p>
+    <p>Dispones de varios tipos de informes con información pública, siendo el completo el más recomendado.</p>
+    <p><strong>¿Cuál es el plazo de entrega?</strong></p>
+    <p>Entrega en pocas horas para la versión completa.</p>
+    <p><strong>¿Más dudas?</strong> Contacta con nosotros vía correo electrónico.</p>
   </div>
 
 </div>
 
 <footer>
-  <p>Política de Privacidad: Tu información se usa solo para generar el informe y procesar pagos seguros mediante Stripe. No compartimos tus datos con terceros.</p>
+  <p>Política de privacidad: Tu información (matrícula y email) se usa solo para generar el informe y procesar pagos seguros mediante Stripe. No compartimos tus datos con terceros.</p>
 </footer>
-
-<!-- Contador de urgencia -->
-<script>
-let ofertaFecha = new Date();
-ofertaFecha.setHours(23,59,59,0);
-function actualizarCountdown() {
-  let ahora = new Date().getTime();
-  let distancia = ofertaFecha - ahora;
-  if(distancia < 0) {
-    document.getElementById("countdown").innerHTML = "¡Oferta finalizada!";
-    return;
-  }
-  let horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000*60*60));
-  let minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000*60));
-  let segundos = Math.floor((distancia % (1000 * 60)) / 1000);
-  document.getElementById("countdown").innerHTML = `Oferta termina en: ${horas.toString().padStart(2,'0')}:${minutos.toString().padStart(2,'0')}:${segundos.toString().padStart(2,'0')}`;
-}
-setInterval(actualizarCountdown, 1000);
-</script>
 
 </body>
 </html>
