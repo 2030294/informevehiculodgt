@@ -7,12 +7,6 @@
 <meta name="description" content="Solicita un informe completo de autocaravanas matriculadas en España. Conoce cargas, historial de ITV, kilometraje, titulares y más antes de comprar.">
 <link rel="icon" href="favicon.png" type="image/png">
 
-<!-- SEO Social -->
-<meta property="og:title" content="Informe completo de autocaravanas">
-<meta property="og:description" content="Consulta historial completo, cargas, ITV y datos técnicos antes de comprar cualquier autocaravana en España">
-<meta property="og:image" content="favicon.png">
-<meta property="og:type" content="website">
-
 <style>
 *{box-sizing:border-box;}
 body{font-family:Arial,sans-serif;margin:0;padding:0;background:#f4f4f4;color:#333;overflow-x:hidden;}
@@ -41,16 +35,10 @@ const stripeURL="https://buy.stripe.com/fZubJ1ftv6IR3Qt6WigrS02";
 function goToStripe(){
   let matricula=document.getElementById("matricula").value.trim();
   let email=document.getElementById("email").value.trim();
-
-  if(matricula==""||email==""){
-    alert("Introduce matrícula y email");
-    return;
-  }
-
+  if(matricula==""||email==""){alert("Introduce matrícula y email");return;}
   let url = stripeURL + "?prefilled_email=" + encodeURIComponent(email)
                         + "&client_reference_id=" + encodeURIComponent(matricula)
                         + "&locale=es";
-
   window.location.href = url;
 }
 
@@ -62,8 +50,7 @@ setInterval(function(){
   let minutes=Math.floor((distance%(1000*60*60))/(1000*60));
   let seconds=Math.floor((distance%(1000*60))/1000);
   if(distance<0){minutes=0;seconds=0;}
-  document.getElementById("countdown").innerHTML=
-  "⏳ Oferta limitada: "+minutes+"m "+seconds+"s";
+  document.getElementById("countdown").innerHTML="⏳ Oferta limitada: "+minutes+"m "+seconds+"s";
 },1000);
 </script>
 
@@ -71,8 +58,8 @@ setInterval(function(){
 <body>
 
 <header>
-  <h1>InformeVehículoDGT</h1>
-  <p>Consulta el historial completo de cualquier autocaravana antes de comprar</p>
+<h1>Informe completo de Autocaravanas</h1>
+<p>Consulta el historial completo de autocaravanas antes de comprar</p>
 </header>
 
 <div class="container">
@@ -84,12 +71,9 @@ setInterval(function(){
 </div>
 
 <div class="product-card">
-<h3>Informe Completo de Autocaravanas</h3>
+<h3>Informe Completo</h3>
 <p>Entrega inmediata</p>
-<p>
-<span class="old-price">39,99 €</span>
-<span class="price">24,99 €</span>
-</p>
+<p><span class="old-price">39,99 €</span> <span class="price">24,99 €</span></p>
 <p class="timer" id="countdown"></p>
 <button class="button" onclick="goToStripe()">Solicitar Informe</button>
 </div>
@@ -103,10 +87,23 @@ setInterval(function(){
 <li>📊 Consulta historial real del vehículo</li>
 <li>🧾 Verifica kilometraje y titulares</li>
 <li>🛠️ Revisa ITV y estado técnico</li>
-<li>🚗 Válido para cualquier autocaravana</li>
+<li>🚗 Válido para cualquier vehículo</li>
 <li>✅ Compra con total tranquilidad</li>
 </ul>
 </div>
+
+<h2>Tipos de vehículos disponibles</h2>
+<ul>
+<li>Coches</li>
+<li>Motos</li>
+<li>Furgonetas y camionetas</li>
+<li>Autocaravanas</li>
+<li>Camiones</li>
+<li>Autobuses</li>
+<li>Vehículos eléctricos e híbridos</li>
+<li>Maquinaria y motores</li>
+<li>Remolques</li>
+</ul>
 
 <div class="faq">
 <h2>Preguntas Frecuentes</h2>
