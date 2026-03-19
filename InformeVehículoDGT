@@ -60,6 +60,14 @@ input,select{width:100%;padding:10px;margin:10px 0 20px 0;}
 Este servicio actúa como intermediario en la obtención de informes de vehículos basados en datos públicos de la DGT.
 </p>
 </div>
-
+<footer style="text-align:center;margin-top:40px;padding:20px;font-size:14px;background:#f4f4f4;">
+<p>
+<a href="/aviso-legal.html">Aviso Legal</a> |
+<a href="/privacidad.html">Política de Privacidad</a> |
+<a href="/cookies.html">Cookies</a> |
+<a href="/terminos-condiciones.html">Términos y Condiciones</a>
+</p>
+<p>&copy; 2026 InformeVehículoDGT - Todos los derechos reservados</p>
+</footer>
 </body>
 </html>
