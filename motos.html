@@ -4,29 +4,88 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Informe completo de Motos | InformeVehículoDGT</title>
+<link rel="icon" href="favicon.png" type="image/png">
 
 <style>
 *{box-sizing:border-box;}
-body{font-family:Arial,sans-serif;margin:0;background:#f4f4f4;color:#333;}
-header{background:#003366;color:#fff;padding:30px;text-align:center;}
+body{font-family:Arial,sans-serif;margin:0;padding:0;background:#f4f4f4;color:#333;overflow-x:hidden;}
+header{background:#003366;color:#fff;padding:30px 15px;text-align:center;}
+header h1{margin:0;font-size:2em;}
+header p{margin-top:10px;font-size:1.1em;}
 .container{max-width:1000px;margin:auto;padding:20px;background:#fff;border-radius:10px;box-shadow:0 4px 15px rgba(0,0,0,0.1);}
-h2,h3{text-align:center;color:#003366;}
-.form-card{border:3px solid #003366;border-radius:10px;padding:30px;text-align:center;width:350px;margin:30px auto;box-shadow:0 0 15px rgba(0,51,102,0.2);}
-.form-card input{width:100%;padding:12px;margin-bottom:20px;border-radius:6px;border:1px solid #003366;text-align:center;}
-.old-price{text-decoration:line-through;color:#999;}
-.price{font-size:2em;color:#003366;font-weight:bold;}
-.button{background:#ff6600;color:#fff;padding:16px;border:none;border-radius:8px;font-weight:bold;width:100%;cursor:pointer;}
+h2,h3{color:#003366;text-align:center;}
+
+.old-price{text-decoration:line-through;color:#999;margin-right:10px;font-size:1.2em;}
+.price{font-size:2.2em;color:#003366;font-weight:bold;}
+
+.button{display:inline-block;background:#ff6600;color:#fff;padding:18px 30px;border:none;border-radius:8px;font-weight:bold;margin-top:20px;font-size:1.2em;cursor:pointer;transition:0.3s;}
+.button:hover{background:#e65c00;transform:scale(1.05);}
+
+.benefits{background:#fff3e6;padding:25px;border-radius:10px;margin-top:30px;border:2px solid #ff6600;text-align:center;}
+.benefits ul, .vehicle-types ul{list-style:none;padding:0;margin:0;}
+.benefits li, .vehicle-types li{margin:10px 0;}
+
+.faq{margin-top:40px;text-align:center;}
+footer{text-align:center;color:#666;font-size:0.9em;margin-top:40px;padding-bottom:20px;}
 .microcopy{font-size:14px;margin-top:10px;}
+
+/* CUADRO PRINCIPAL */
+.form-card{
+border:3px solid #003366;
+border-radius:10px;
+padding:30px;
+text-align:center;
+width:350px;
+margin:30px auto;
+box-shadow:0 0 15px rgba(0,51,102,0.2);
+}
+
+.form-card input{
+width:100%;
+padding:12px;
+font-size:16px;
+border:1px solid #003366;
+border-radius:6px;
+text-align:center;
+margin-bottom:20px;
+}
 </style>
 
 <script>
 const stripeURL="https://buy.stripe.com/fZubJ1ftv6IR3Qt6WigrS02";
+
 function goToStripe(){
-let m=document.getElementById("matricula").value;
-let e=document.getElementById("email").value;
-if(!m||!e){alert("Introduce matrícula y email");return;}
-window.location.href=stripeURL+"?prefilled_email="+e+"&client_reference_id="+m+"&locale=es";
+let matricula=document.getElementById("matricula").value.trim();
+let email=document.getElementById("email").value.trim();
+
+if(matricula==""||email==""){
+alert("Introduce matrícula y email");
+return;
 }
+
+let url=stripeURL+"?prefilled_email="+encodeURIComponent(email)
++"&client_reference_id="+encodeURIComponent(matricula)
++"&locale=es";
+
+window.location.href=url;
+}
+
+// contador
+let countdownDate=new Date().getTime()+59*60*1000;
+
+setInterval(function(){
+let now=new Date().getTime();
+let distance=countdownDate-now;
+
+let minutes=Math.floor((distance%(1000*60*60))/(1000*60));
+let seconds=Math.floor((distance%(1000*60))/1000);
+
+if(distance<0){minutes=0;seconds=0;}
+
+document.getElementById("countdown").innerHTML=
+"⏳ Oferta limitada: "+minutes+"m "+seconds+"s";
+
+},1000);
 </script>
 </head>
 
@@ -34,25 +93,74 @@ window.location.href=stripeURL+"?prefilled_email="+e+"&client_reference_id="+m+"
 
 <header>
 <h1>Informe completo de Motos</h1>
-<p>Consulta el historial antes de comprar tu moto</p>
+<p>Consulta el historial completo antes de comprar</p>
 </header>
 
 <div class="container">
 
+<h2 id="countdown">⏳ Oferta limitada: 59m 00s</h2>
+
+<!-- CUADRO -->
 <div class="form-card">
 <h3>Introduce matrícula y correo electrónico</h3>
 
 <input type="text" id="matricula" placeholder="Matrícula de la moto">
 <input type="email" id="email" placeholder="Correo electrónico">
 
-<p><span class="old-price">39,99 €</span> <span class="price">24,99 €</span></p>
-<p><strong>Entrega inmediata</strong></p>
+<p>
+<span class="old-price">39,99 €</span>
+<span class="price">24,99 €</span>
+</p>
 
-<button class="button" onclick="goToStripe()">🚀 Obtener informe</button>
+<p style="font-weight:bold;color:#003366;">Entrega inmediata</p>
 
-<p class="microcopy">🔒 Pago seguro • 📄 Informe oficial DGT</p>
+<button class="button" onclick="goToStripe()">
+🚀 Obtén tu informe oficial DGT en minutos
+</button>
+
+<p class="microcopy">
+🔒 Pago seguro • ⏱️ Entrega inmediata • 📄 Informe oficial DGT • Evita fraudes
+</p>
+</div>
+
+<!-- BENEFICIOS -->
+<div class="benefits">
+<h3>¿Por qué solicitar el informe?</h3>
+<ul>
+<li>🔒 Evita fraudes</li>
+<li>⚖️ Comprueba cargas</li>
+<li>📊 Historial completo</li>
+<li>🧾 Kilometraje real</li>
+<li>🛠️ ITV y estado técnico</li>
+<li>✅ Compra con tranquilidad</li>
+</ul>
+</div>
+
+<h2>Tipos de vehículos disponibles</h2>
+<div class="vehicle-types">
+<ul>
+<li>Motos</li>
+<li>Ciclomotores</li>
+<li>Scooters</li>
+<li>Quads</li>
+<li>Motocross</li>
+</ul>
+</div>
+
+<!-- FAQ -->
+<div class="faq">
+<h2>Preguntas Frecuentes</h2>
+<p><strong>Horario:</strong> Lunes a Viernes de 9:00 a 18:00</p>
+<p><strong>Contacto:</strong><br>info@informevehiculodgt.es</p>
+<p><strong>¿Qué incluye?</strong><br>Historial completo, cargas, ITV y datos técnicos.</p>
+<p><strong>¿Cuánto tarda?</strong><br>Normalmente en pocas horas.</p>
 </div>
 
 </div>
+
+<footer>
+<p>© 2026 InformeVehículoDGT</p>
+</footer>
+
 </body>
 </html>
