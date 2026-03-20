@@ -18,18 +18,17 @@ h2,h3{color:#003366;text-align:center;}
 .old-price{text-decoration:line-through;color:#999;margin-right:10px;font-size:1.2em;}
 .price{font-size:2.2em;color:#003366;font-weight:bold;}
 
-.button{display:inline-block;background:#ff6600;color:#fff;padding:18px 30px;border:none;border-radius:8px;font-weight:bold;margin-top:20px;font-size:1.2em;cursor:pointer;transition:0.3s;}
+.button{display:inline-block;background:#ff6600;color:#fff;padding:18px 30px;border:none;border-radius:8px;font-weight:bold;margin-top:20px;font-size:1.2em;cursor:pointer;transition: background 0.3s, transform 0.2s;}
 .button:hover{background:#e65c00;transform:scale(1.05);}
 
 .benefits{background:#fff3e6;padding:25px;border-radius:10px;margin-top:30px;border:2px solid #ff6600;text-align:center;}
-.benefits ul, .vehicle-types ul{list-style:none;padding:0;margin:0;}
+.benefits ul, .vehicle-types ul{list-style:none;padding:0;text-align:center;margin:0 auto;}
 .benefits li, .vehicle-types li{margin:10px 0;}
 
 .faq{margin-top:40px;text-align:center;}
 footer{text-align:center;color:#666;font-size:0.9em;margin-top:40px;padding-bottom:20px;}
-.microcopy{font-size:14px;margin-top:10px;}
+.microcopy{font-size:14px;color:#333;margin-top:10px;text-align:center;}
 
-/* CUADRO PRINCIPAL */
 .form-card{
 border:3px solid #003366;
 border-radius:10px;
@@ -63,14 +62,14 @@ alert("Introduce matrícula y email");
 return;
 }
 
-let url=stripeURL+"?prefilled_email="+encodeURIComponent(email)
-+"&client_reference_id="+encodeURIComponent(matricula)
-+"&locale=es";
+let url = stripeURL + "?prefilled_email=" + encodeURIComponent(email)
+                      + "&client_reference_id=" + encodeURIComponent(matricula)
+                      + "&locale=es";
 
-window.location.href=url;
+window.location.href = url;
 }
 
-// contador
+// contador 59 min
 let countdownDate=new Date().getTime()+59*60*1000;
 
 setInterval(function(){
@@ -87,8 +86,8 @@ document.getElementById("countdown").innerHTML=
 
 },1000);
 </script>
-</head>
 
+</head>
 <body>
 
 <header>
@@ -100,39 +99,37 @@ document.getElementById("countdown").innerHTML=
 
 <h2 id="countdown">⏳ Oferta limitada: 59m 00s</h2>
 
-<!-- CUADRO -->
+<!-- CUADRO ÚNICO -->
 <div class="form-card">
 <h3>Introduce matrícula y correo electrónico</h3>
 
 <input type="text" id="matricula" placeholder="Matrícula de la moto">
 <input type="email" id="email" placeholder="Correo electrónico">
 
-<p>
-<span class="old-price">39,99 €</span>
-<span class="price">24,99 €</span>
-</p>
-
-<p style="font-weight:bold;color:#003366;">Entrega inmediata</p>
+<p><span class="old-price">39,99 €</span> <span class="price">24,99 €</span></p>
+<p style="font-weight:bold; color:#003366;">Entrega inmediata</p>
 
 <button class="button" onclick="goToStripe()">
 🚀 Obtén tu informe oficial DGT en minutos
 </button>
 
 <p class="microcopy">
-🔒 Pago seguro • ⏱️ Entrega inmediata • 📄 Informe oficial DGT • Evita fraudes
+🔒 Pago seguro • ⏱️ Entrega inmediata • 📄 Informe oficial DGT • Evita fraudes y sorpresas
 </p>
 </div>
 
 <!-- BENEFICIOS -->
 <div class="benefits">
-<h3>¿Por qué solicitar el informe?</h3>
+<h3>¿Por qué solicitar el informe antes de comprar?</h3>
 <ul>
-<li>🔒 Evita fraudes</li>
-<li>⚖️ Comprueba cargas</li>
-<li>📊 Historial completo</li>
-<li>🧾 Kilometraje real</li>
-<li>🛠️ ITV y estado técnico</li>
-<li>✅ Compra con tranquilidad</li>
+<li>🔒 Evita fraudes y estafas</li>
+<li>⚖️ Comprueba cargas y embargos</li>
+<li>📉 Detecta problemas antes de pagar</li>
+<li>📊 Consulta historial real del vehículo</li>
+<li>🧾 Verifica kilometraje y titulares</li>
+<li>🛠️ Revisa ITV y estado técnico</li>
+<li>🚗 Válido para cualquier vehículo</li>
+<li>✅ Compra con total tranquilidad</li>
 </ul>
 </div>
 
@@ -144,6 +141,9 @@ document.getElementById("countdown").innerHTML=
 <li>Scooters</li>
 <li>Quads</li>
 <li>Motocross</li>
+<li>Enduro</li>
+<li>Motos eléctricas</li>
+<li>Remolques para moto</li>
 </ul>
 </div>
 
@@ -151,15 +151,35 @@ document.getElementById("countdown").innerHTML=
 <div class="faq">
 <h2>Preguntas Frecuentes</h2>
 <p><strong>Horario:</strong> Lunes a Viernes de 9:00 a 18:00</p>
-<p><strong>Contacto:</strong><br>info@informevehiculodgt.es</p>
-<p><strong>¿Qué incluye?</strong><br>Historial completo, cargas, ITV y datos técnicos.</p>
-<p><strong>¿Cuánto tarda?</strong><br>Normalmente en pocas horas.</p>
+<p><strong>Contacto:</strong><br><a href="mailto:info@informevehiculodgt.es">info@informevehiculodgt.es</a></p>
+<p><strong>¿Qué incluye el informe?</strong><br>Historial completo, cargas, ITV, kilometraje y datos técnicos.</p>
+<p><strong>¿Cuánto tarda?</strong><br>Entrega normalmente en pocas horas.</p>
 </div>
 
 </div>
 
+<!-- FOOTER COMPLETO -->
 <footer>
-<p>© 2026 InformeVehículoDGT</p>
+<div style="margin-bottom:20px;font-size:14px;">
+<a href="/aviso-legal.html" style="color:#003366;margin:0 8px;">Aviso Legal</a> |
+<a href="/privacidad.html" style="color:#003366;margin:0 8px;">Privacidad</a> |
+<a href="/cookies.html" style="color:#003366;margin:0 8px;">Cookies</a> |
+<a href="/terminos-condiciones.html" style="color:#003366;margin:0 8px;">Términos</a>
+</div>
+
+<div style="margin-bottom:20px;">
+🔒 Pago seguro con Stripe • ⏱️ Entrega inmediata • 📄 Informe oficial DGT
+</div>
+
+<div style="margin-bottom:20px;">
+<a href="mailto:info@informevehiculodgt.es" style="background:#ff6600;color:#fff;padding:10px 20px;border-radius:6px;text-decoration:none;">
+Contacto
+</a>
+</div>
+
+<div style="font-size:13px;">
+© 2026 InformeVehículoDGT - Todos los derechos reservados
+</div>
 </footer>
 
 </body>
